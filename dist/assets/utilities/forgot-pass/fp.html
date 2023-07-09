@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fp.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+  <script defer src="/dist/bundle.js"></script>
+
+  <title>Garbo Monitoring</title>
+  <link rel="icon" type="image/x-icon" href="../../img/logo/logo.png">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <div class="title-section">
+        <h2 class="title">Reset Password</h2>
+        <p>Please enter the email address that you use to register. There will be a link that will be sent to you afterward. Click the link to reset your password.</p>
+      </div>
+
+      <form action="">
+
+        <div class="input-group">
+          <label for="">Email Address</label>
+          <input id="mail" type="email" name="email" placeholder="Enter Your Email Address" required="required">
+          <span class="icon">&#9993;</span>
+
+        </div>
+
+        <div class="input-group">
+          <button  id="submit" class="submit" type="submit">Send Link</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./fp.js"></script>
+  
+</body>
+</html>
+
+<script type="module">
+  
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-analytics.js";
+  import { getAuth, sendPasswordResetEmail, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, connectFirestoreEmulator } from "https://www.gstatic.com/firebasejs/9.19.0/firebase-firestore.js";
+  
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBAO-FP4MGApI231xr9bVDZIzsXPPGoVkM",
+    authDomain: "casestudy2-f35ed.firebaseapp.com",
+    projectId: "casestudy2-f35ed",
+    storageBucket: "casestudy2-f35ed.appspot.com",
+    messagingSenderId: "1047601609844",
+    appId: "1:1047601609844:web:55b8874e5ccf521466a521",
+    measurementId: "G-9XV7B6DX8J"
+};
+
+// Initialize Firebase
+          
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const db = getFirestore();
+  // const providerGoogle = new GoogleAuthProvider(app);
+  // const providerFB = new FacebookAuthProvider(app);
+  // const providerGithub = new GithubAuthProvider(app);
+  // const providerMS = new OAuthProvider('microsoft.com');
+  connectFirestoreEmulator(db, 'localhost', 8080);
+  
+
+        //-------------------------------------------------Forgot Password
+
+    document.getElementById("submit").addEventListener("click", function() {
+      var mail =  document.getElementById("email").value;
+
+        sendPasswordResetEmail(auth, mail)
+          .then(() => {
+            console.log('Email sent successfully')
+            // Password reset email sent!
+            // ..
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
+        })
+
+        </script>

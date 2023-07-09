@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/user.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <script defer src="./bundle.js"></script>
+
+  <title>Garbo Monitoring</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/logo/logo.png">
+</head>
+
+
+<body>
+  <main>
+    <div class="box" style="margin-left: 20%; margin-top: 1%;">
+    <div class="inner-box">
+      <div class="menu">
+        <div class="profile-tab-nav" style="border-right: 1px solid #137413;">
+					<div style="padding: 10%;">
+
+						<div class="img-circle" style="margin-bottom: 13%; text-align: center;">
+							<img src="assets/img/side-img/profile-pic.png" class="shadow">
+						</div>
+						<h4 class="uname" id="displayName" style="text-align: center;"></h4>
+					</div>
+
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						
+						<a class="nav-link" id="user-tab" data-toggle="pill" href="#user" role="tab" aria-controls="user" aria-selected="true">
+              <img width="22" height="22" src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/22/137413/external-user-interface-kiranshastry-lineal-kiranshastry.png" class="text-center mr-1"/> <span>Profile</span>
+						</a>
+
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+              <img width="22" height="22" src="https://img.icons8.com/ios/22/137413/private2.png" class="text-center mr-1"/> <span>Password</span>
+						</a>
+
+            <a class="nav-link show-modal" id="deact" data-toggle="pill" href="#deact" role="tab" aria-controls="password" aria-selected="false">
+              <img width="22" height="22" src="https://img.icons8.com/external-creatype-glyph-colourcreatype/22/137413/external-people-creatype-user-interface-creatype-glyph-colourcreatype.png" class="text-center mr-1"/> <span>Delete Account</span>
+						</a>
+					</div>
+				</div>
+
+        <p>© Garbo Monitoring. A product of IoT project 2023</p>
+      </div>
+
+      <div class="form-menu">
+
+        <div class="tab-content p-4 p-md-3" id="v-pills-tabContent">
+
+          <div class="user tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+
+          <h2 class="mb-4">Profile Settings</h2>
+
+          <div class="btns">
+            <a href="home.html" class="btn btn-prev">
+              <img width="36" height="36" src="https://img.icons8.com/ios-filled/36/137413/login-rounded.png" alt="login-rounded"/>
+            </a>
+          </div>
+
+          <form  autocomplete="off">
+
+            <signage class="title">Fullname</signage>
+            <input type="text" id="name" class="input"  required="required">
+
+            <signage class="title">Address</signage>
+
+            <div class="inputrow">
+              <select class="inputgroup select" id="barangay">
+          
+                <ul class="options" style="position: absolute;font-size: 0.75em;">
+
+                  <option selected disabled>Barangay</option>
+
+                    <option class="option" required="required">
+                      <img width="16" height="16" src="https://img.icons8.com/sf-black-filled/16/137413/home.png" alt="home"/>
+                        <span class="option-text">Bagong Silang</span> <!--Schedule: Thursday-->
+                    </option>
+                    <option class="option">
+                      <img width="16" height="16" src="https://img.icons8.com/sf-black-filled/16/137413/home.png" alt="home"/>
+                        <span class="option-text">Del Carmen</span> <!--Schedule: Thursday and Tuesday-->
+                    </option>
+                    <option class="option">
+                      <img width="16" height="16" src="https://img.icons8.com/sf-black-filled/16/137413/home.png" alt="home"/>
+                        <span class="option-text">Saray</span> <!--Schedule: Tuesday and Friday-->
+                    </option>
+
+                    <option class="option">
+                      <img width="16" height="16" src="https://img.icons8.com/sf-black-filled/16/137413/home.png" alt="home"/>
+                        <span class="option-text">Tominobo Proper</span> <!--Schedule: Tuesday and Friday-->
+                    </option>
+
+                    <option class="option">
+                      <img width="16" height="16" src="https://img.icons8.com/sf-black-filled/16/137413/home.png" alt="home"/>
+                        <span class="option-text">Ubaldo Laya</span> <!--Schedule: Tuesday-->
+                    </option>
+                </ul>
+              </select>
+              
+              <div class="input-text select-menu">
+                <div class="select-btn">
+                  <input type="text" id="purok" placeholder="Purok" class="input"  required="required">
+                </div>
+              </div>
+            </div>
+
+            <signage class="title">Email</signage>
+            <input type="email" id="email" class="input"  required="required">
+
+            <signage class="title">Phone Number</signage>
+            <input type="number" id="phone" class="input"  required="required">
+
+            <input type="button" value="Save Changes" id="editButton" class="save" />
+          </form>
+          </div>
+
+          <!--password page-->
+          <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<h2 class="mb-4">Password Settings</h2>
+
+            <div class="btns">
+              <a href="home.html" class="btn btn-prev">
+                <img width="36" height="36" src="https://img.icons8.com/ios-filled/36/137413/login-rounded.png" alt="login-rounded"/>
+              </a>
+            </div>
+  
+            <form action="" autocomplete="off">
+     	
+     	        <signage class="title mb-1">Old Password</signage>
+     	        <input class="inputp" type="password" name="op" placeholder="Old Password"><br>
+
+              <signage class="title mb-1">New Password</signage>
+              <input class="inputp" type="password" name="np" placeholder="New Password"><br>
+
+              <input type="submit" value="Save Password" id="passbutton" class="save">
+            </form>
+						
+					</div>
+        </div>
+      </div>
+
+      <section id="deact" aria-labelledby="deact">
+
+        <span class="overlay"></span>
+        <div class="modal-box">
+
+          <img width="70" height="70" src="https://img.icons8.com/ios/70/137413/nerd--v1.png" alt="nerd--v1"/>
+
+          <h2>Are you sure you want to leave?</h2>
+          <h4>Note: All your information will not be restored.</h4>
+
+          <div class="buttons">
+            <button class="close-btn">Cancel</button>
+            <button class="deactivate bg-danger" id="delAccount">Delete Account</button>
+          </div>
+        </div>
+        
+      </section>
+
+    </div>
+  </div>
+  </main>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./js/user.js"></script>
+</body>
+</html>
+
+
+<script type="module">  
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  import { getAuth, signOut, onAuthStateChanged, updateProfile, updateEmail, deleteUser, updatePassword } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+  import { connectFirestoreEmulator, orderBy, limit, getFirestore, setDoc, addDoc, doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+  
+  const firebaseConfig = {
+  apiKey: "AIzaSyCWfJLhjnXwnoZuA3H-2-N21Tb44uPggjM",
+  authDomain: "garbo-monitoring-64bef.firebaseapp.com",
+  projectId: "garbo-monitoring-64bef",
+  storageBucket: "garbo-monitoring-64bef.appspot.com",
+  messagingSenderId: "1053791292726",
+  appId: "1:1053791292726:web:539ef2986dfe83e243f797",
+  measurementId: "G-TD2F6PJYSS"
+};
+
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const db = getFirestore();
+  console.log(app);
+
+
+//-----------------------------------------------------Profile username and Profile Photo
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Authenticated user:", user);
+    const displayName = user.displayName;
+    const displayNameElement = document.getElementById("displayName");
+    displayNameElement.textContent = displayName;
+
+    // Check if the user has a profile photo URL
+    if (user.photoURL) {
+      const profilePhotoElement = document.querySelectorAll("#profile-photo");
+      profilePhotoElement.forEach((element) => {
+        element.src = user.photoURL;
+      });
+    }
+  } else {
+    console.log("User is not authenticated");
+  }
+});
+
+
+
+//-------------------------------------------------------------------Edit User's Credentials
+document.getElementById("editButton").addEventListener("click", async function() {
+  var username = document.getElementById("name").value;
+  var address = document.getElementById("barangay").value;
+  var purok = document.getElementById("purok").value;
+  var email = document.getElementById("email").value;
+  var contact = document.getElementById("phone").value;
+
+  try {
+    await updateProfile(auth.currentUser, {
+      displayName: username
+    });
+
+    updateEmail(auth.currentUser, {
+      email: email
+    });
+
+    const collectionRef = collection(db, 'users');
+    const queryRef = query(collectionRef);
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const userId = user.uid;
+        console.log(user);
+
+        const docRef = doc(collectionRef, userId);
+        getDoc(docRef)
+          .then(async (snapshot) => {
+            if (snapshot.exists()) {
+              await setDoc(docRef, {
+                name: username,
+                barangay: address,
+                purok: purok,
+                email: email,
+                phone: contact
+              });
+              alert("Updated successfully!"); 
+              location.reload(); // Reload the page
+            }
+          });
+      }
+    });
+
+
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(errorMessage);
+  }
+});
+
+
+
+//------------------------------------------------------- Edit user password
+document.getElementById("passButton").addEventListener("click", async function() {
+  var oldp = document.getElementById("op").value;
+  var newp = document.getElementById("np").value;
+  var cnewp = document.getElementById("c_np").value;
+
+  const user = auth.currentUser;
+  const userId = user.uid;
+
+  const collectionRef = collection(db, 'users');
+  const docRef = doc(collectionRef, userId);
+
+  getDoc(docRef)
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        const userData = snapshot.data();
+        const pword = userData.password;
+        console.log("Fetched password:", pword);
+
+        if (oldp !== pword) {
+          alert("Incorrect current password");
+        } else {
+          if (newp !== cnewp) {
+            alert("New password and confirm password do not match");
+          } else {
+         
+            user.updatePassword(newp)
+              .then(() => {
+                console.log("Password updated successfully!");
+                alert("Password updated successfully!");
+
+               
+                updateDoc(docRef, { password: newp })
+                  .then(() => {
+                    console.log("Password updated in Firestore!");
+                  })
+                  .catch((error) => {
+                    console.log("Error updating password in Firestore:", error);
+                  });
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log("Error updating password:", errorMessage);
+                alert(errorMessage);
+              });
+          }
+        }
+      }
+    });
+});
+
+
+// ------------------------------------------------------ Delete Account
+document.addEventListener('DOMContentLoaded', function() {
+  const user = auth.currentUser;
+
+  // Check if the user is signed in before proceeding
+  if (!user) {
+    console.log("User not signed in");
+    return;
+  }
+
+  document.getElementById("delAccount").addEventListener("click", async function() {
+    try {
+      // Delete user account
+      await deleteUser(user);
+
+      // Delete document from Firestore
+      const collectionRef = collection(db, 'users');
+      const queryRef = query(collectionRef, where('userId', '==', user.uid)); // Replace 'userId' with the actual field name in your document
+      const querySnapshot = await getDocs(queryRef);
+
+      if (!querySnapshot.empty) {
+        querySnapshot.forEach((doc) => {
+          deleteDoc(doc.ref);
+        });
+      }
+
+      alert(user.email + " user deleted successfully!!!");
+      window.location.href = "index.html";
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      // Display an error message or handle the error appropriately
+    }
+  });
+});
+
+
+ 
+
+
+
+    </script>

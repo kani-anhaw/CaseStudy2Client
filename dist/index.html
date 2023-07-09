@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script defer src="./bundle.js"></script>
+
+  <title>Garbo Monitoring</title>
+  <link rel="icon" type="image/x-icon" href="assets/img/logo/logo.png">
+</head>
+
+<body>
+  <section class="index">
+    <div class="index-text">
+      <h5>Case #2: IoT Project</h5>
+      <h1>Garbo Monitoring</h1>
+      <h4>Garbage Collection Monitoring and Notification System</h4>
+      <a href="signin.html">Join Us</a>
+    </div>
+
+    <div class="index-img">
+      <img src="assets/img/logo/logo.png">
+    </div>
+  </section>
+
+  <div class="icons">
+    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+  </div>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>
+
+
+<script type="module">  
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+  import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+  import { connectFirestoreEmulator, orderBy, limit, getFirestore, setDoc, addDoc, doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+  
+  
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyCWfJLhjnXwnoZuA3H-2-N21Tb44uPggjM",
+    authDomain: "garbo-monitoring-64bef.firebaseapp.com",
+    projectId: "garbo-monitoring-64bef",
+    storageBucket: "garbo-monitoring-64bef.appspot.com",
+    messagingSenderId: "1053791292726",
+    appId: "1:1053791292726:web:539ef2986dfe83e243f797",
+    measurementId: "G-TD2F6PJYSS"
+};
+
+
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const db = getFirestore();
+  console.log(app);
+
+
+//-----------------------------------------------------Profile username and Profile Photo
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Authenticated user:", user);
+    const displayName = user.displayName;
+    const displayNameElement = document.getElementById("displayName");
+    displayNameElement.textContent = displayName;
+
+    // Check if the user has a profile photo URL
+    if (user.photoURL) {
+      const profilePhotoElement = document.querySelectorAll("#profile-photo");
+      profilePhotoElement.forEach((element) => {
+        element.src = user.photoURL;
+      });
+    }
+  } else {
+    console.log("User is not authenticated");
+  }
+});
+
+
+//----------------------------------------------------Logout
+document.getElementById("logout").addEventListener("click", function() {
+      signOut(auth).then(() => {
+        alert('Thank you for using our app. Goodbye for now!');
+        document.getElementById('logout').style.display = 'none';
+        window.location.href = "index.html";
+  
+      }).catch((error) => {
+        console.log(error);
+      });		  		  
+    });
+
+
+    </script>
